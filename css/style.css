@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Satoshi', sans-serif;
   background-color: #fff;
   color: #333;
 }
@@ -47,6 +47,10 @@ h1, h2 {
   border-left: 5px solid #f05a28;
   padding-left: 0.5em;
   color: #111;
+  font-family: 'Satoshi', sans-serif;   /* ← フォント指定 */
+  font-weight: 700;                     /* ← 太字で力強く */
+  text-transform: uppercase;            /* ← 全部大文字でレーシーに */
+  letter-spacing: 1.5px;                /* ← 文字間を少し広げて洗練感 */
 }
 
 footer {
