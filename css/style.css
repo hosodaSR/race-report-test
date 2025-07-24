@@ -85,3 +85,66 @@ footer {
 .slide.active {
   opacity: 1;
 }
+
+.pdf-desktop {
+  display: block;
+}
+
+.pdf-mobile-summary {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .pdf-desktop {
+    display: none;
+  }
+
+  .pdf-mobile-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em 0;
+    padding: 1em;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+
+  .pdf-mobile-summary img {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 6px;
+    margin-bottom: 1em;
+  }
+
+  .pdf-summary-text {
+    text-align: center;
+  }
+
+  .pdf-summary-text h2 {
+    font-size: 1.1em;
+    color: #f05a28;
+    margin-bottom: 0.5em;
+  }
+
+  .pdf-summary-text p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 1em;
+  }
+
+  .pdf-button {
+    display: inline-block;
+    padding: 0.8em 1.2em;
+    background-color: #f05a28;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+
+  .pdf-button:hover {
+    background-color: #d94c1a;
+  }
+}
+
