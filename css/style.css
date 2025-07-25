@@ -158,24 +158,35 @@ footer {
 .report-card {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* ← 影を濃くした */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); /* 影をさらに濃く */
   overflow: hidden;
   transition: transform 0.2s ease;
+}
+
+.report-card a {
+  display: flex;
+  flex-direction: row; /* 横並び */
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  text-decoration: none;
+  color: inherit;
 }
 
 .report-card:hover {
   transform: scale(1.02);
 }
 
-
 .report-card img {
-  width: 15%;
-  aspect-ratio: 4 / 3; /* 例：横4・縦3の比率 */
+  width: 160px; /* 固定サイズで安定表示 */
+  height: auto;
+  border-radius: 6px;
   object-fit: cover;
 }
 
 .report-info {
-  padding: 0.8em;
+  flex: 1;
+  padding: 0.5em 0;
 }
 
 .report-info h2 {
@@ -192,3 +203,13 @@ footer {
   color: #888;
 }
 
+@media screen and (max-width: 768px) {
+  .report-card a {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .report-card img {
+    width: 100%;
+  }
+}
