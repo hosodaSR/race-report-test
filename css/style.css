@@ -167,14 +167,13 @@ footer {
   transform: scale(1.02);
 }
 
+
 .report-card img {
-  width: 25%;
-  max-width: 25%;
-  height: auto;
-  display: block;
+  width: 15%;
+  aspect-ratio: 4 / 3; /* 例：横4・縦3の比率 */
   object-fit: cover;
-  border-bottom: 1px solid #eee;
 }
+
 
 
 .report-info {
