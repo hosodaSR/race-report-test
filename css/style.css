@@ -147,3 +147,47 @@ footer {
     background-color: #d94c1a;
   }
 }
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5em;
+  padding: 1em;
+}
+
+.report-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.report-card:hover {
+  transform: scale(1.02);
+}
+
+.report-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.report-info {
+  padding: 0.8em;
+}
+
+.report-info h2 {
+  font-size: 1.1em;
+  margin: 0 0 0.3em;
+}
+
+.report-info p {
+  margin: 0 0 0.5em;
+  color: #555;
+}
+
+.report-info small {
+  color: #888;
+}
+
