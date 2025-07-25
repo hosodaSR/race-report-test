@@ -169,9 +169,13 @@ footer {
 
 .report-card img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
 }
+
 
 .report-info {
   padding: 0.8em;
