@@ -177,12 +177,14 @@ footer {
   transform: scale(1.02);
 }
 
+
 .report-card img {
-  width: 160px; /* 固定サイズで安定表示 */
-  height: auto;
+  width: 240px; /* 横幅を固定 */
+  aspect-ratio: 1 / 1; /* アスペクト比を固定（例：正方形） */
+  object-fit: cover; /* はみ出す部分をトリミングしてカバー */
   border-radius: 6px;
-  object-fit: cover;
 }
+
 
 .report-info {
   flex: 1;
