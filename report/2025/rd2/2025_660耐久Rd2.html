@@ -138,5 +138,45 @@
   <footer>
     <p>&copy; 2025 ARY Racing Team KANTO</p>
   </footer>
+  <!-- JavaScriptはここに挿入！ -->
+  <script>
+    function loadCSV(file, containerId) {
+      fetch(file)
+        .then(response => response.text())
+        .then(csv => {
+          const rows = csv.split('\n').slice(1);
+          const table = document.createElement('table');
+          table.className = 'lap-table';
+
+          const thead = document.createElement('thead');
+          thead.innerHTML = '<tr><th>データ番号</th><th>タイム</th></tr>';
+          table.appendChild(thead);
+
+          const tbody = document.createElement('tbody');
+          rows.forEach(row => {
+            const cols = row.split(',');
+            const lapNo = cols[1];
+            const lapTime = cols[4];
+            if (lapNo && lapTime) {
+              const tr = document.createElement('tr');
+              tr.innerHTML = `<td>${lapNo}</td><td>${lapTime}</td>`;
+              tbody.appendChild(tr);
+            }
+          });
+          table.appendChild(tbody);
+
+          document.getElementById(containerId).innerHTML = '';
+          document.getElementById(containerId).appendChild(table);
+        })
+        .catch(error => {
+          document.getElementById(containerId).innerText = 'CSVの読み込みに失敗しました';
+          console.error(error);
+        });
+    }
+
+    loadCSV('2025rd2practice.csv', 'practice-table');
+    loadCSV('2025rd2qualify.csv', 'qualify-table');
+    loadCSV('2025rd2race.csv', 'race-table');
+  </script>
 </body>
 </html>
