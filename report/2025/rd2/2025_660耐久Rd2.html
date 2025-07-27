@@ -131,27 +131,33 @@
       fetch(file)
         .then(response => response.text())
         .then(csv => {
-          const rows = csv.split('\n').slice(1);
+          const lines = csv.trim().split('\n');
+          const rows = lines.slice(1); // ヘッダー除外
+    
           const table = document.createElement('table');
           table.className = 'lap-table';
-
+    
+          // ヘッダー行
           const thead = document.createElement('thead');
-          thead.innerHTML = '<tr><th>データ番号</th><th>タイム</th></tr>';
+          thead.innerHTML = '<tr><th>LAP</th><th>タイム</th><th>ドライバ</th></tr>';
           table.appendChild(thead);
-
+    
+          // データ行
           const tbody = document.createElement('tbody');
           rows.forEach(row => {
             const cols = row.split(',');
-            const lapNo = cols[1];
-            const lapTime = cols[4];
-            if (lapNo && lapTime) {
+            const lap = cols[1];
+            const time = cols[4];
+            const driver = cols[7];
+    
+            if (lap && time && driver) {
               const tr = document.createElement('tr');
-              tr.innerHTML = `<td>${lapNo}</td><td>${lapTime}</td>`;
+              tr.innerHTML = `<td>${lap}</td><td>${time}</td><td>${driver}</td>`;
               tbody.appendChild(tr);
             }
           });
           table.appendChild(tbody);
-
+    
           document.getElementById(containerId).innerHTML = '';
           document.getElementById(containerId).appendChild(table);
         })
@@ -160,7 +166,6 @@
           console.error(error);
         });
     }
-
     loadCSV('2025rd2practice.csv', 'practice-table');
     loadCSV('2025rd2qualify.csv', 'qualify-table');
     loadCSV('2025rd2race.csv', 'race-table');
